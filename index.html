@@ -87,9 +87,35 @@
 			  <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
 			  <label for="message">Message</label>
 			</div>
-			<a href="#" class="btn btn-primary">Submit</a>
-
+			<!--<a href="#" class="btn btn-primary">Submit</a> -->
 		</div>
+		<!-- TODO: Implement Task 4 here -->
+		<button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#contactModal">Submit</button>
+		<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="contactModalLabel">Submitted Information</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  <div class="modal-body">
+				<p><strong>Name:</strong> <span id="modalName"></span></p>
+				<p><strong>Email:</strong> <span id="modalEmail"></span></p>
+				<p><strong>Message:</strong> <span id="modalMessage"></span></p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<script>
+		  document.querySelector('[data-bs-target="#contactModal"]').addEventListener('click', function () {
+			document.getElementById('modalName').textContent = document.getElementById('name').value;
+			document.getElementById('modalEmail').textContent = document.getElementById('email').value;
+			document.getElementById('modalMessage').textContent = document.getElementById('message').value;
+		  });
+		</script>
     </div>
 </body>
 
